@@ -91,3 +91,53 @@ class Node:
         self.link = None
 ```
 
+## 10월8일(5주차)
+### 연결 리스트 함수화와 검색
+
+`1001/ch4_1.py`에서는 노드를 직접 생성하고 `link`를 하나씩 연결해 연결 리스트를 만들었다.
+`1008/ch4_1_2.py`에서는 이 과정을 함수와 반복문으로 확장해 더 유연하게 관리할 수 있도록 했다.
+
+- `print_nodes()` 함수로 연결 리스트 전체를 순회하며 출력하기
+- `find_data()` 함수로 원하는 데이터를 가진 노드 검색하기
+- 검색 결과가 있으면 해당 노드를 반환하고, 없으면 빈 노드로 처리하기
+- `insert_node()` 함수로 특정 데이터 앞에 새 노드 삽입하기
+- 첫 번째 노드 앞, 중간, 마지막 위치에 노드를 삽입하는 경우를 나누어 처리하기
+- `memory`에 생성된 노드를 저장하고 `head`로 첫 번째 노드 관리하기
+- 삽입 함수가 호출될 때마다 `current`와 `pre`를 초기화해 이전 탐색 상태가 남지 않도록 하기
+
+### `ch4_1.py`와 `ch4_1_2.py`의 차이
+
+| 구분 | `1001/ch4_1.py` | `1008/ch4_1_2.py` |
+|---|---|---|
+| 노드 생성 | 노드를 직접 생성하고 연결 | 반복문으로 여러 노드 생성 |
+| 출력 | 노드에 직접 접근하거나 반복문 사용 | `print_nodes()` 함수로 출력 |
+| 검색 | 검색 기능 없음 | `find_data()` 함수로 데이터 검색 |
+| 삽입 | 코드 블록에서 한 번만 직접 처리 | `insert_node()` 함수로 반복 사용 |
+| 관리 방식 | `node1`, `node2`와 같은 변수로 관리 | `head`, `current`, `pre`, `memory`로 관리 |
+
+```py
+def find_data(find_data):
+    current = head
+    if current.data == find_data:
+        return current
+
+    while current.link is not None:
+        current = current.link
+        if current.data == find_data:
+            return current
+
+    return Node()
+
+search_node = find_data("쯔위")
+print(search_node.data)
+```
+
+### 실행 예제
+
+```py
+insert_node("다현", "재남")
+print_nodes(head)
+
+search_node = find_data("쯔위")
+print("검색 결과:", search_node.data)
+```
