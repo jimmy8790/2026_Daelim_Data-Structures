@@ -42,7 +42,7 @@ print("Hello World!")
 ---
 
 # 202630127 장민준
-## 9월17일(3주차)
+## 9월17일
 ### 리스트의 삽입과 삭제
 
 - 리스트의 인덱스를 이용해 원하는 위치의 데이터에 접근하기
@@ -60,7 +60,7 @@ kakao[4] = kakao[5]
 kakao[5] = temp
 ```
 
-## 10월1일(4주차)
+## 10월1일
 ### 리스트 기본 조작
 
 - 빈 리스트를 생성하고 `len()`으로 리스트의 길이 확인하기
@@ -91,7 +91,7 @@ class Node:
         self.link = None
 ```
 
-## 10월8일(5주차)
+## 10월8일
 ### 연결 리스트 함수화와 검색
 
 `1001/ch4_1.py`에서는 노드를 직접 생성하고 `link`를 하나씩 연결해 연결 리스트를 만들었다.
@@ -140,4 +140,50 @@ print_nodes(head)
 
 search_node = find_data("쯔위")
 print("검색 결과:", search_node.data)
+```
+
+## 10월15일
+### 원형 연결 리스트
+
+- 마지막 노드가 첫 번째 노드를 가리키는 원형 연결 리스트의 구조 이해하기
+- `Node` 클래스로 데이터와 다음 노드를 가리키는 `link` 만들기
+- `head`가 없는 빈 원형 연결 리스트 초기화하기
+- `append()` 함수로 리스트의 마지막에 노드 추가하기
+- 마지막 노드의 `link`가 `head`를 가리키도록 연결하기
+- `print_list()` 함수에서 `head`로 돌아올 때까지 한 바퀴 순회하기
+
+```py
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            new_node.link = self.head
+            return
+```
+
+## 10월29일
+### 스택 자료구조
+
+- 스택의 후입선출(LIFO) 구조 이해하기
+- 리스트와 `top` 변수로 스택 구현하기
+- `init_stack()` 함수로 스택의 크기와 초기 상태 설정하기
+- `push()` 함수로 데이터를 스택의 가장 위에 삽입하기
+- `pop()` 함수로 가장 최근에 삽입된 데이터 삭제하기
+- `peek()` 함수로 데이터를 삭제하지 않고 최상단 값 확인하기
+- `is_full()` 함수로 스택이 가득 찼는지 확인하기
+- `is_empty()` 함수로 스택이 비어 있는지 확인하기
+- 스택이 가득 찼거나 비어 있을 때 예외 상황 처리하기
+
+```py
+stack = [None] * 5
+top = -1
+
+push("커피")
+push("녹차")
+print(peek())
+pop()
 ```
