@@ -1,12 +1,25 @@
 # 202630127 장민준
 
-## 11월 12일
-
-- [ah.py](./1112/ah.py)
-
 ## 11월 5일
 
-- [test_queue.py](./1105/test_queue.py)
+### 원형 큐
+
+- 고정된 크기의 원형 큐 구조 이해하기
+- `front`와 `rear`로 큐의 앞과 뒤 위치 관리하기
+- `enqueue()` 함수로 큐의 뒤에 데이터 삽입하기
+- `dequeue()` 함수로 큐의 앞에서 데이터 추출하기
+- `peek()` 함수로 다음에 추출될 데이터 확인하기
+- `is_empty()` 함수로 큐가 비어 있는지 확인하기
+- `is_full()` 함수로 큐가 가득 찼는지 확인하기
+- 나머지 공간을 재사용하는 원형 큐의 동작 확인하기
+
+```py
+queue = Queue(5)
+queue.enqueue("화사")
+queue.enqueue("솔라")
+print(queue.peek())
+print(queue.dequeue())
+```
 
 ## 10월29일
 ### 스택 자료구조
