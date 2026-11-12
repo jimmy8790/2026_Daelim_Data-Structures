@@ -1,5 +1,87 @@
 # 202630127 장민준
 
+## 11월 12일 - 이진 트리
+
+### 오늘 배운 내용
+
+이진 트리는 하나의 노드가 최대 두 개의 자식 노드를 가질 수 있는 자료구조이다.
+각 노드는 데이터를 저장하는 `data`와 왼쪽 및 오른쪽 자식을 가리키는 `left`, `right`를 가진다.
+
+### 노드의 구성
+
+```py
+class TreeNode:
+    def __init__(self):
+        self.data = None
+        self.left = None
+        self.right = None
+```
+
+- `data`: 노드에 저장할 값
+- `left`: 왼쪽 자식 노드
+- `right`: 오른쪽 자식 노드
+- `None`: 연결된 자식 노드가 아직 없다는 뜻
+
+### 트리 연결 방법
+
+노드를 각각 만든 다음 부모 노드의 `left` 또는 `right`에 자식 노드를 연결한다.
+
+```py
+node1 = TreeNode()
+node1.data = "커피"
+
+node2 = TreeNode()
+node2.data = "우유"
+node1.left = node2
+
+node3 = TreeNode()
+node3.data = "녹차"
+node1.right = node3
+```
+
+위 코드는 다음 구조를 만든다.
+
+```text
+       커피
+      /   \
+    우유   녹차
+```
+
+### 완성된 트리 구조
+
+```text
+          커피
+        /      \
+      우유      녹차
+     /   \       /
+   라떼  카페모카 아이스티
+```
+
+- `커피`: 루트 노드
+- `우유`, `녹차`: 루트의 자식 노드
+- `라떼`, `카페모카`, `아이스티`: 자식의 자식 노드
+- `아이스티`처럼 한쪽 자식만 있는 노드도 만들 수 있다.
+
+### 노드에 접근하기
+
+`.`을 사용해 연결된 노드를 따라가며 원하는 데이터에 접근할 수 있다.
+
+```py
+print(node1.data)                # 커피
+print(node1.left.data)           # 우유
+print(node1.right.data)          # 녹차
+print(node1.left.left.data)      # 라떼
+print(node1.left.right.data)     # 카페모카
+print(node1.right.left.data)     # 아이스티
+```
+
+### 기억할 점
+
+이진 트리는 배열의 인덱스가 아니라 노드의 `left`, `right` 연결을 이용해 구조를 표현한다.
+따라서 노드를 연결할 때 부모와 자식의 방향을 정확하게 지정해야 한다.
+
+---
+
 ## 11월 5일 - 원형 큐
 
 ### 오늘 배운 내용

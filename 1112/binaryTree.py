@@ -28,10 +28,6 @@ node6.data = '아이스티'
 node3.left = node6
 
 print("==이진 트리 구조==")
-print("       ", node1.data)
-
-print("      / \\")
-print("     ", node2.data, " ", node3.data)
-
-print("    / \\   / \\")
-print("   ", node4.data, " ", node5.data, " ", node6.data)
+print(node1.data)
+print(node1.left.data, node1.right.data)
+print(node1.left.left.data, node1.left.right.data, node1.right.left.data)
